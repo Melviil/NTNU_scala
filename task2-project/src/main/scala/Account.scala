@@ -114,14 +114,22 @@ class Account(val accountId: String, val bankId: String, val initialBalance: Dou
 		case BalanceRequest => sender ! getBalanceAmount // Should return current balance
 
 		case t: Transaction => {
-      try {
-          deposit(t.amount)
-          val tr = new TransactionRequestReceipt(toAccountNumber = t.from, transactionId = t.id, transaction = t)
-          sender ! tr
-      } catch {
-          case _: NoSufficientFundsException | _: IllegalAmountException =>
-              t.status = TransactionStatus.FAILED
+
+      if ( t.status  == TransactionStatus.FAILED ){ // if it comes back with a fail status
+        deposit(t.amount)
+      }else{
+        try {
+            deposit(t.amount)
+            val tr = new TransactionRequestReceipt(toAccountNumber = t.from, transactionId = t.id, transaction = t)
+            sender ! tr
+        } catch {
+            case _: NoSufficientFundsException | _: IllegalAmountException =>
+                t.status = TransactionStatus.FAILED
+        }
+
       }
+
+
 
 		}
 
