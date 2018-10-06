@@ -1,0 +1,14 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mTest09:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- Failed transactions should lead to correct status information in all transaction lists, and no balances should be affected. *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  akka.pattern.AskTimeoutException: Ask timed out on [Actor[akka://BankManager/user/bank9000#-491030875]] after [5000 ms]. Message of type [CreateAccountRequest]. A typical reason for `AskTimeoutException` is that the recipient actor didn't send a reply.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.pattern.PromiseActorRef$.$anonfun$defaultOnTimeout$1(AskSupport.scala:635)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.pattern.PromiseActorRef$.$anonfun$apply$1(AskSupport.scala:650)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.actor.Scheduler$$anon$4.run(Scheduler.scala:205)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.actor.LightArrayRevolverScheduler$TaskHolder.run(LightArrayRevolverScheduler.scala:337)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.actor.LightArrayRevolverScheduler.$anonfun$close$1(LightArrayRevolverScheduler.scala:141)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.actor.LightArrayRevolverScheduler.$anonfun$close$1$adapted(LightArrayRevolverScheduler.scala:140)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.Iterator.foreach(Iterator.scala:944)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.Iterator.foreach$(Iterator.scala:944)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.AbstractIterator.foreach(Iterator.scala:1432)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.IterableLike.foreach(IterableLike.scala:71)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m

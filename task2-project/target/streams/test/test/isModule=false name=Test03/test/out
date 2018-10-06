@@ -1,0 +1,14 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mTest03:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- Valid transaction within same bank, accounts should have correct balance. *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  java.lang.ClassCastException: Cannot cast Bank to akka.actor.ActorRef[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.lang.Class.cast(Class.java:3369)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.concurrent.Future.$anonfun$mapTo$1(Future.scala:496)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.util.Success.$anonfun$map$1(Try.scala:251)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.util.Success.map(Try.scala:209)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.concurrent.Future.$anonfun$map$1(Future.scala:288)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.concurrent.BatchingExecutor$Batch.processBatch$1(BatchingExecutor.scala:63)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.concurrent.BatchingExecutor$Batch.$anonfun$run$1(BatchingExecutor.scala:78)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m

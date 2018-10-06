@@ -1,0 +1,14 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mTest13:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- Create and find two different banks. *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  java.lang.IllegalStateException: cannot create children while terminating or terminated[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.actor.dungeon.Children.makeChild(Children.scala:270)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.actor.dungeon.Children.attachChild(Children.scala:48)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.actor.dungeon.Children.attachChild$(Children.scala:47)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.actor.ActorCell.attachChild(ActorCell.scala:431)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.actor.ActorSystemImpl.actorOf(ActorSystem.scala:748)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at BankManager$.createBank(BankManager.scala:13)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at Test13.$anonfun$new$22(AccountTests.scala:325)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m

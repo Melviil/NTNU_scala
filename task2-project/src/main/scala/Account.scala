@@ -24,21 +24,52 @@ class Account(val accountId: String, val bankId: String, val initialBalance: Dou
 
     def getTransactions: List[Transaction] = {
         // Should return a list of all Transaction-objects stored in transactions
-        ???
+        transactions.values.toList
     }
 
     def allTransactionsCompleted: Boolean = {
         // Should return whether all Transaction-objects in transactions are completed
-        ???
+        var completed:Boolean = false
+        for ( transaction <- transactions.values.toList){
+          if ( transaction.isCompleted){
+            completed = true
+          }
+        }
+        completed
     }
 
-    def withdraw(amount: Double): Unit = ??? // Like in part 2
-    def deposit(amount: Double): Unit = ??? // Like in part 2
-    def getBalanceAmount: Double = ??? // Like in part 2
+    def withdraw(amount: Double): Unit = {
+    	if ( balance.amount < amount){
+    		throw new NoSufficientFundsException()
+    	}
+    	else if ( amount < 0) {
+    		throw new IllegalAmountException()
+    	}else{
+    		this.synchronized {
+				balance.amount = balance.amount - amount
+			}
+    	}
+    }
+
+    def deposit(amount: Double): Unit = {
+    	if ( amount < 0 ){
+			throw new IllegalAmountException()
+    	}else{
+    		this.synchronized {
+    			balance.amount = balance.amount + amount
+    		}
+    	}
+    }
+
+    def getBalanceAmount: Double = {
+    	balance.amount
+    }
 
     def sendTransactionToBank(t: Transaction): Unit = {
         // Should send a message containing t to the bank of this account
-        ???
+        var bank = BankManager.findBank(bankId)
+        bank ! t
+
     }
 
     def transferTo(accountNumber: String, amount: Double): Transaction = {
@@ -69,18 +100,24 @@ class Account(val accountId: String, val bankId: String, val initialBalance: Dou
     }
 
     override def receive = {
-		case IdentifyActor => sender ! this
+    case IdentifyActor => sender ! this
 
 		case TransactionRequestReceipt(to, transactionId, transaction) => {
 			// Process receipt
 			???
 		}
 
-		case BalanceRequest => ??? // Should return current balance
+		case BalanceRequest => sender ! getBalanceAmount // Should return current balance
 
 		case t: Transaction => {
-			// Handle incoming transaction
-			???
+      try {
+          deposit(t.amount)
+          // send receipt
+      } catch {
+          case _: NoSufficientFundsException | _: IllegalAmountException =>
+              t.status = TransactionStatus.FAILED
+      }
+
 		}
 
 		case msg => ???

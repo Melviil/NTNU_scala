@@ -1,0 +1,14 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mTest05:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- Valid transaction between two different banks, sender transaction list should have the correct status information. *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  akka.pattern.AskTimeoutException: Ask timed out on [Actor[akka://BankManager/user/bank2015#54760012]] after [5000 ms]. Message of type [CreateAccountRequest]. A typical reason for `AskTimeoutException` is that the recipient actor didn't send a reply.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.pattern.PromiseActorRef$.$anonfun$defaultOnTimeout$1(AskSupport.scala:635)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.pattern.PromiseActorRef$.$anonfun$apply$1(AskSupport.scala:650)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.actor.Scheduler$$anon$4.run(Scheduler.scala:205)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.concurrent.Future$InternalCallbackExecutor$.unbatchedExecute(Future.scala:870)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.concurrent.BatchingExecutor.execute(BatchingExecutor.scala:109)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.concurrent.BatchingExecutor.execute$(BatchingExecutor.scala:103)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.concurrent.Future$InternalCallbackExecutor$.execute(Future.scala:868)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.actor.LightArrayRevolverScheduler$TaskHolder.executeTask(LightArrayRevolverScheduler.scala:328)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.actor.LightArrayRevolverScheduler$$anon$4.executeBucket$1(LightArrayRevolverScheduler.scala:279)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.actor.LightArrayRevolverScheduler$$anon$4.nextTick(LightArrayRevolverScheduler.scala:283)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
