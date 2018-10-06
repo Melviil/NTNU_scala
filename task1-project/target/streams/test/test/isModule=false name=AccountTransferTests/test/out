@@ -1,0 +1,7 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mAccountTransferTests:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test 08: Valid transfer between accounts[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test 09: Transfer of negative amount between accounts should fail[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test 10: Invalid transfer between accounts due to insufficient funds should lead to transaction status FAILED and no money should be transferred between accounts[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test 11: Correct balance amounts after several transfers[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test 12: Failed transactions should retry and potentially succeed with multiple allowed attempts[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test 13: Some transactions should be stopped with only one allowed attempt[0m[0m
