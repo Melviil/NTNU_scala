@@ -30,9 +30,13 @@ class Account(val accountId: String, val bankId: String, val initialBalance: Dou
     def allTransactionsCompleted: Boolean = {
         // Should return whether all Transaction-objects in transactions are completed
         var completed:Boolean = false
-        for ( transaction <- transactions.values.toList){
-          if ( transaction.isCompleted){
-            completed = true
+        if ( transactions.values.toList.isEmpty){
+          completed = true
+        }else{
+          for ( transaction <- transactions.values.toList){
+            if ( transaction.isCompleted){
+              completed = true
+            }
           }
         }
         completed
@@ -80,15 +84,12 @@ class Account(val accountId: String, val bankId: String, val initialBalance: Dou
             try {
                 withdraw(amount)
                 sendTransactionToBank(t)
-
             } catch {
                 case _: NoSufficientFundsException | _: IllegalAmountException =>
                     t.status = TransactionStatus.FAILED
             }
         }
-
         t
-
     }
 
     def reserveTransaction(t: Transaction): Boolean = {
@@ -103,8 +104,11 @@ class Account(val accountId: String, val bankId: String, val initialBalance: Dou
     case IdentifyActor => sender ! this
 
 		case TransactionRequestReceipt(to, transactionId, transaction) => {
-			// Process receipt
-			???
+      for ( transaction <- getTransactions){
+        if ( transaction.id == transactionId){
+          transaction.status = TransactionStatus.SUCCESS
+        }
+      }
 		}
 
 		case BalanceRequest => sender ! getBalanceAmount // Should return current balance
@@ -112,7 +116,8 @@ class Account(val accountId: String, val bankId: String, val initialBalance: Dou
 		case t: Transaction => {
       try {
           deposit(t.amount)
-          sender ! t
+          val tr = new TransactionRequestReceipt(toAccountNumber = t.from, transactionId = t.id, transaction = t)
+          sender ! tr
       } catch {
           case _: NoSufficientFundsException | _: IllegalAmountException =>
               t.status = TransactionStatus.FAILED
@@ -120,7 +125,7 @@ class Account(val accountId: String, val bankId: String, val initialBalance: Dou
 
 		}
 
-		case msg => ???
+		//case msg => ???
     }
 
 

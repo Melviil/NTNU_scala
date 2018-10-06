@@ -1,2 +1,2 @@
 [0m[[0m[0minfo[0m] [0m[0m[32mTest12:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- Invalid transactions within one bank, account balances should not be affected. *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Invalid transactions within one bank, account balances should not be affected.[0m[0m
