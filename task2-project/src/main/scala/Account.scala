@@ -112,7 +112,7 @@ class Account(val accountId: String, val bankId: String, val initialBalance: Dou
 		case t: Transaction => {
       try {
           deposit(t.amount)
-          // send receipt
+          sender ! t
       } catch {
           case _: NoSufficientFundsException | _: IllegalAmountException =>
               t.status = TransactionStatus.FAILED
